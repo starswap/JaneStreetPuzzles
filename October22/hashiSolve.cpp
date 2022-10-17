@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int HASHI_HEIGHT = 7;
-const int HASHI_WIDTH  = 7;
+// const int HASHI_HEIGHT = 7;
+// const int HASHI_WIDTH  = 7;
+const int HASHI_HEIGHT = 15;
+const int HASHI_WIDTH  = 15;
 const int HASHI_MIN    = 1;
 const int HASHI_MAX    = 7;
 const int BLANK_SQUARE = -1;
@@ -35,7 +37,7 @@ ostream& operator << (ostream& o, HashiPuzzle p) {
                 o << '|';
             }
             else if (number == VERTICAL_DOUBLE) {
-                o << "P"; // Should be unicode ‖ but windows terminal bad. Will just find and replace after smh.
+                o << "H"; // Should be unicode ‖ but windows terminal bad. Will just find and replace after smh.
             }
             else {
                 o << "ERROR: Unexpected integer token " << number << " in Hashi Puzzle" << endl;
@@ -137,15 +139,33 @@ bool makeMove(HashiPuzzle& hashi) {
 }
 
 int main() {
+    // HashiPuzzle hashi = {
+    //     {2,-1,-1, 1,-1,-1, 3,
+    //     -1,-1,-1,-1,-1,-1,-1,
+    //      3,-1,-1,-1,-1,-1, 5,
+    //     -1,-1,-1,-1,-1,-1,-1,
+    //      3,-1,-1,-1,-1, 1,-1,
+    //     -1,-1,-1,-1,-1,-1,-1,
+    //      4,-1,-1,-1,-1,-1, 4}
+    // };
     HashiPuzzle hashi = {
-        {2,-1,-1, 1,-1,-1, 3,
-        -1,-1,-1,-1,-1,-1,-1,
-         3,-1,-1,-1,-1,-1, 5,
-        -1,-1,-1,-1,-1,-1,-1,
-         3,-1,-1,-1,-1, 1,-1,
-        -1,-1,-1,-1,-1,-1,-1,
-         4,-1,-1,-1,-1,-1, 4}
+        1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1, 2,-1,-1,-1, 3,-1,-1,-1,-1,-1,-1,-1,-1, 4,
+         3,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1,-1,-1,-1, 1,-1, 1,-1,-1,-1,-1, 5,-1,-1, 6,
+        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1, 6,-1,-1, 5,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1,-1,-1,-1,-1,-1,-1, 3,-1,-1,-1, 4,-1, 1,-1,
+        -1,-1,-1,-1, 2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1, 3,-1,-1,-1, 4,-1, 4,-1,-1,-1,-1,-1, 4,-1,
+         5,-1, 5,-1,-1,-1,-1,-1,-1,-1,-1, 1,-1,-1,-1,
+        -1, 2,-1,-1, 2,-1, 4,-1,-1,-1,-1,-1, 3,-1,-1,
+        -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 2,-1,
+        -1,-1, 3,-1,-1, 5,-1,-1,-1,-1,-1,-1, 6,-1, 4,
+         1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+        -1, 4,-1,-1,-1, 6,-1, 4,-1,-1,-1,-1, 6,-1, 3,
     };
+
     cout << (makeMove(hashi) ? "Succeeded in Solving" : "Failed to Solve") << endl;
     cout << hashi << endl;
 
