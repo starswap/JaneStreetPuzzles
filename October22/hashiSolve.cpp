@@ -159,7 +159,7 @@ int main() {
         -1,-1,-1,-1, 2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
         -1, 3,-1,-1,-1, 4,-1, 4,-1,-1,-1,-1,-1, 4,-1,
          5,-1, 5,-1,-1,-1,-1,-1,-1,-1,-1, 1,-1,-1,-1,
-        -1, 2,-1,-1, 2,-1, 4,-1,-1,-1,-1,-1, 3,-1,-1,
+        -1, 2,-1,-1, 2,-1, 6,-1,-1,-1,-1,-1, 3,-1,-1,
         -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 2,-1,
         -1,-1, 3,-1,-1, 5,-1,-1,-1,-1,-1,-1, 6,-1, 4,
          1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
@@ -167,7 +167,24 @@ int main() {
     };
 
     cout << (makeMove(hashi) ? "Succeeded in Solving" : "Failed to Solve") << endl;
-    cout << hashi << endl;
+
+    for (int r=0;r<HASHI_HEIGHT;r++) {
+        for (int c=0;c<HASHI_WIDTH;c++) {
+            if (HASHI_MIN <= hashi[r][c] && hashi[r][c] <= HASHI_MAX) {
+                for (int i=HASHI_MIN;i<=HASHI_MAX;++i) {
+                    int old = hashi[r][c];
+                    hashi[r][c] = i;
+                    if (makeMove(hashi)) {
+                        cout << "Solved switching " << "(" << r << "," << c << ")" << " from " << old << " to " << i << "." << endl;
+                        cout << hashi << endl;
+                    }
+                    hashi[r][c] = old;
+                }
+            }
+
+        }
+    }
+
 
 
 }
