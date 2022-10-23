@@ -1,0 +1,15 @@
+Nethod to Solve this Puzzle
+
+1. Notice that the name of the character is Hashi which is a Japanese bridge forming puzzle which looks just like the image
+2. Write a program to solve the Hashi puzzle
+3. Deal with the fact that 1 number is wrong in each field by solving each field separately, brute forcing the wrong number over all islands and all possible correct numbers. This can be done quickly as the strict rules of Hashi prune quickly.
+4. Convert the results of each field's solution back into an image
+5. Remove all single bridges to consider only the double ones.
+6. Read "PROB NO ACES GIVEN SHAPE".
+7. Notice that this is likely a reference to the card game bridge, given the bridge theme
+8. Notice that the numbers we changed the wrong islands to add to 13 - the number of cards in a bridge hand and there are 4 of them.
+9. We therefore have a bridge hand of shape [5,4,3,1] and we want to find the probability of that having no aces.
+10. Find that probability mathematically and check with a Monte Carlo method.
+11. Submit (Phew!)
+
+If you want extra difficulty, write the code wrong so it takes the first solution that works not the best, so the middle two fields end up only partially legible, spend a week working out what NC ACE GWEN means and then realise that it should say NO ACES GIVEN and that the fixed numbers should add to 13 but don't, realise the code is wrong, fix the code, resolve the rest of the problem, then calculate the probability wrong and realise only by way of a Monte Carlo check, fix the probability and submit. 
